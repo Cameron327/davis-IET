@@ -23,10 +23,24 @@
 
     <TextView
         android:id="@+id/username"
-        android:layout_width="200dp"
+        android:layout_width="278dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
+        android:layout_marginEnd="2dp"
+        android:layout_toStartOf="@+id/imageMore"
         android:text="Study Abroad Award Workshop- Summer and Fall Programs (Zoom)"
+        android:textColor="@color/headerColor" />
+
+    <TextView
+        android:id="@+id/displayName"
+        android:layout_width="266dp"
+        android:layout_height="41dp"
+        android:layout_below="@+id/username"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="14dp"
+        android:layout_toStartOf="@+id/imageMore"
+        android:text="Display"
         android:textColor="@color/headerColor" />
 
     <ImageView

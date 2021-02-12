@@ -1,7 +1,9 @@
 package com.example.davisietapiproject;
 
+import java.io.Serializable;
+
 // model class for actor data
-public class TheActor {
+public class TheActor implements Serializable {
     public String displayName;
 
     //constructor

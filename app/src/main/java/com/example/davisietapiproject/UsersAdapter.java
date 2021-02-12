@@ -39,7 +39,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserAdapterV
         UserResponse userResponse = userResponseList.get(position);
 
         String username = userResponse.getTitle();
-        //String displayName = userResponse.getTheActor().getDisplayName();
+        String displayName = userResponse.getTheActor().getDisplayName();
         String prefix;
         if (userResponse.isIs_Active()){
             prefix = "A";
@@ -49,7 +49,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserAdapterV
 
         holder.prefix.setText(prefix);
         holder.username.setText(username);
-        //holder.displayName.setText(displayName);
+        holder.displayName.setText(displayName);
         holder.imageMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,14 +63,13 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserAdapterV
     }
 
     @Override
-    // i need to fix this
     public int getItemCount() {
         return userResponseList.size();
     }
 
     public class UserAdapterVH extends RecyclerView.ViewHolder {
         TextView username;
-        //TextView displayName;
+        TextView displayName;
         TextView prefix;
         ImageView imageMore;
 
@@ -78,11 +77,9 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserAdapterV
             super(itemView);
 
             username = itemView.findViewById(R.id.username);
-            //displayName = itemView.findViewById(R.id.displayName);
+            displayName = itemView.findViewById(R.id.displayName);
             prefix = itemView.findViewById(R.id.prefix);
             imageMore = itemView.findViewById(R.id.imageMore);
-
-
         }
     }
 }

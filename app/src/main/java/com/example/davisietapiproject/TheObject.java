@@ -1,7 +1,9 @@
 package com.example.davisietapiproject;
 
+import java.io.Serializable;
+
 // object class
-public class TheObject {
+public class TheObject implements Serializable {
     public String objectType;
 
     // constructor

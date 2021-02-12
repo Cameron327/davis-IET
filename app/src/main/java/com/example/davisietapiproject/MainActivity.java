@@ -57,9 +57,7 @@ public class MainActivity extends AppCompatActivity implements UsersAdapter.Clic
                 if(response.isSuccessful()){
                     Log.e("success", response.body().toString());
                     List<UserResponse> userResponse = response.body();
-
                     usersAdapter.setData(userResponse);
-
                     recyclerView.setAdapter(usersAdapter);
                 }
             }
