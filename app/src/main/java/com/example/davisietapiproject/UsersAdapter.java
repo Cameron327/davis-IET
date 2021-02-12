@@ -13,14 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserAdapterVH> {
-
     private List<UserResponse> userResponseList;
     private Context context;
 
     public UsersAdapter() {
 
     }
-    public void setData(List<UserResponse> userResponse) {
+
+    public void setData(List<UserResponse> userResponseList) {
         this.userResponseList = userResponseList;
         notifyDataSetChanged();
     }
@@ -36,7 +36,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserAdapterV
     public void onBindViewHolder(@NonNull UserAdapterVH holder, int position) {
         UserResponse userResponse = userResponseList.get(position);
 
-        String title = userResponse.getTitle();
+        String username = userResponse.getTitle();
         String prefix;
         if (userResponse.isIs_Active()){
             prefix = "A";
@@ -45,25 +45,25 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserAdapterV
         }
 
         holder.prefix.setText(prefix);
-        holder.title.setText(title);
+        holder.username.setText(username);
 
     }
 
     @Override
     // i need to fix this
     public int getItemCount() {
-        return 0;
+        return userResponseList.size();
     }
 
     public class UserAdapterVH extends RecyclerView.ViewHolder {
-        TextView title;
+        TextView username;
         TextView prefix;
         ImageView imageMore;
 
         public UserAdapterVH(@NonNull View itemView) {
             super(itemView);
 
-            title = itemView.findViewById(R.id.title);
+            username = itemView.findViewById(R.id.username);
             prefix = itemView.findViewById(R.id.prefix);
             imageMore = itemView.findViewById(R.id.imageMore);
 

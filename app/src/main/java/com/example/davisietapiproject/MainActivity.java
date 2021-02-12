@@ -54,9 +54,9 @@ public class MainActivity extends AppCompatActivity {
 
                 if(response.isSuccessful()){
                     Log.e("success", response.body().toString());
-                    List<UserResponse> userResponses = response.body();
+                    List<UserResponse> userResponse = response.body();
 
-                    usersAdapter.setData(userResponses);
+                    usersAdapter.setData(userResponse);
 
                     recyclerView.setAdapter(usersAdapter);
                 }

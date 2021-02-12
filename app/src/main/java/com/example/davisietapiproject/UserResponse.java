@@ -42,4 +42,5 @@ public class UserResponse {
     public boolean isIs_Active() {
         return true;
     }
+
 }
