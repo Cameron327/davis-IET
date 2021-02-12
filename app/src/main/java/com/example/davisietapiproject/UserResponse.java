@@ -23,12 +23,8 @@ public class UserResponse {
         return actor;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setTheActor(TheActor actor) {
-        this.actor = actor;
+    public String getDisplayName() {
+        return actor.displayName;
     }
 
     @Override
