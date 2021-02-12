@@ -38,4 +38,8 @@ public class UserResponse {
                 ", actor=" + actor.displayName +
                 '}';
     }
+
+    public boolean isIs_Active() {
+        return true;
+    }
 }

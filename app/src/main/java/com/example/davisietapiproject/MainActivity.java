@@ -1,9 +1,14 @@
 package com.example.davisietapiproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -17,12 +22,29 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
+    Toolbar toolbar;
+    RecyclerView recyclerView;
+
+    UsersAdapter usersAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        toolbar = findViewById(R.id.toolbar);
+        recyclerView = findViewById(R.id.recyclerview);
 
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+
+        usersAdapter = new UsersAdapter();
+
+        getAllUsers();
+
+    }
+
+    public void getAllUsers(){
         Call<List<UserResponse>> userlist = ApiClient.getUserService().getAllUsers();
 
         userlist.enqueue(new Callback<List<UserResponse>>() {
@@ -32,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
 
                 if(response.isSuccessful()){
                     Log.e("success", response.body().toString());
+                    List<UserResponse> userResponses = response.body();
+
+                    usersAdapter.setData(userResponses);
+
+                    recyclerView.setAdapter(usersAdapter);
                 }
             }
 
@@ -41,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
 
     }
 }
