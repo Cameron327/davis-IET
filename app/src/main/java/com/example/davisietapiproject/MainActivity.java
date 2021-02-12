@@ -5,7 +5,9 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.widget.ListView;
 import androidx.appcompat.widget.Toolbar;
@@ -75,5 +77,7 @@ public class MainActivity extends AppCompatActivity implements UsersAdapter.Clic
     public void ClickedUser(UserResponse userResponse) {
 
         Log.e("clicked user", userResponse.toString());
+        // something wrong with this
+        startActivity(new Intent(this, UserDetailsActivity.class).putExtra("data", userResponse));
     }
 }

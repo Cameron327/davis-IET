@@ -1,18 +1,16 @@
 package com.example.davisietapiproject;
 
+// object class
 public class TheObject {
     public String objectType;
 
+    // constructor
     public TheObject(String objectType) {
         this.objectType = objectType;
     }
 
     public String getObjectType() {
         return objectType;
-    }
-
-    public void setObjectType(String objectType) {
-        this.objectType = objectType;
     }
 
     @Override

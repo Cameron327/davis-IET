@@ -52,7 +52,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserAdapterV
         //holder.displayName.setText(displayName);
         holder.imageMore.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 clickedItem.ClickedUser(userResponse);
             }
         });
