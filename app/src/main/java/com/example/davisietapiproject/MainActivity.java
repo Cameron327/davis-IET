@@ -20,7 +20,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements UsersAdapter.ClickedItem{
 
     Toolbar toolbar;
     RecyclerView recyclerView;
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
-        usersAdapter = new UsersAdapter();
+        usersAdapter = new UsersAdapter(this::ClickedUser);
 
         getAllUsers();
 
@@ -69,5 +69,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void ClickedUser(UserResponse userResponse) {
+
+        Log.e("clicked user", userResponse.toString());
     }
 }

@@ -15,9 +15,10 @@ import java.util.List;
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserAdapterVH> {
     private List<UserResponse> userResponseList;
     private Context context;
+    private ClickedItem clickedItem;
 
-    public UsersAdapter() {
-
+    public UsersAdapter(ClickedItem clickedItem) {
+        this.clickedItem = clickedItem;
     }
 
     public void setData(List<UserResponse> userResponseList) {
@@ -46,7 +47,16 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserAdapterV
 
         holder.prefix.setText(prefix);
         holder.username.setText(username);
+        holder.imageMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickedItem.ClickedUser(userResponse);
+            }
+        });
+    }
 
+    public interface ClickedItem{
+        public void ClickedUser(UserResponse userResponse);
     }
 
     @Override
